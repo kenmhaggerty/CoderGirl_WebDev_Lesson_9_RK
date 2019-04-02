@@ -1,18 +1,22 @@
-// wheel_of_fortune.js
-// CoderGirl WebDev (Winter 2019) — LaunchCode
+var readline = require('readline');
 
-// Set a secret word!
+var rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-// Ask player if they would like to guess a letter or guess the word
+rl.question("Do you want to A: pick a letter, or B: guess the word? ", function([aorb]) {
 
-	// If guessing a letter...
+	var msg = "";
 
-		// If the word contains the letter, print back the word with all instances of that letter revealed.
+	if(aorb === "A")
+		msg = "What letter do you want?";
+	else (aorb === "B") 
+		msg = "What is the word?";
+			
 
-		// If the word does not contain the letter, print back "Sorry, no <letter>!" but with <letter> replaced by the player's guess.
+  // TODO: Log the answer in a database
+  console.log(msg);
 
-	// If guessing the word...
-
-		// If they are correct, congratulate the player!
-
-		// If they are incorrect, print back "Nope, keep trying!"
+  rl.close();
+})
